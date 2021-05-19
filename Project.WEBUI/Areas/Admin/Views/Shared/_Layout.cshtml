@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <style>
+        li {
+            list-style: none;
+            float: right;
+            padding-left: 10px;
+        }
+
+        i {
+            color: #333;
+            font-size: 20px;
+        }
+
+        .footer {
+            background-color: #9FA8DA;
+            height: 200px;
+        }
+
+        p {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-list > li {
+            float: left;
+        }
+
+        .icon-list > li {
+            float: right;
+        }
+
+        .footer-list > li > a {
+            color: #333;
+        }
+
+        #brand-icon {
+            font-size: 30px;
+            color: #fff;
+        }
+
+        #cart-icon {
+            color: #fff
+        }
+
+        #cart-icon:hover {
+            color: #9FA8DA;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-dark navbar-expand-sm navbar-dark fixed-top">
+        <div class="container">
+
+            <div class="navbar-brand">
+                <i id="brand-icon" class="fab fa-edge-legacy"></i>&nbsp;E-Commerce
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index","Home")" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("About","Home")" class="nav-link active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active"><i id="cart-icon" class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Login","Home")" class="btn btn-info">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("RegisterNow","Register")" class="btn btn-info">Sign up</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div id="render-body" class="container body-content">
+        @RenderBody()
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/589fbaa167.js" crossorigin="anonymous"></script>
+</body>
+</html>

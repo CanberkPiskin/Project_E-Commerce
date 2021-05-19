@@ -1,0 +1,47 @@
+﻿@model AppUserVM
+@{
+    ViewBag.Title = "RegisterOk";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin-top:400px;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #C5CAE9;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="register-ok">Congratulations, you have registered ... Please click on the activation link we sent to your email address and activate your account.</p>
+    </div>
+</body>
+</html>
+
+
+<script>
+    $(function () {
+
+        setTimeout(function () {
+            window.location = "/Register/RegisterNow";
+        },5000)
+
+
+    })
+</script>
+

@@ -1,0 +1,66 @@
+﻿@model ProductVM
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #C5CAE9;
+        }
+        .panel-body{
+            padding-top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product name</th>
+                    <th>Unit price</th>
+                    <th>Units in stock</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @foreach (Product item in Model.Products)
+                    {
+                        <td>@item.ID</td>
+                        <td>@item.ProductName</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@item.UnitsInStock</td>
+                        <td>@item.Status</td>
+                        <td>@Html.ActionLink("Delete", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                        <td>@Html.ActionLink("Update", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+

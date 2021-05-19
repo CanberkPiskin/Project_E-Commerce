@@ -1,0 +1,76 @@
+﻿@model ProductVM
+@{
+    ViewBag.Title = "UpdateProduct";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color:#C5CAE9;
+            color: #333;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 380px;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 7px 7px 60px #000;
+        }
+
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(x => x.Product.ID)
+            <div class="form-group">
+                <label for="name">Name</label>
+                @Html.TextBoxFor(x => x.Product.ProductName, new { @class = "form-control", placeholder = "Please enter product name" })
+            </div>
+
+            <div class="form-group">
+                <label for="unitprice">Unit price</label>
+                @Html.TextBoxFor(x => x.Product.UnitPrice, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Units in stock</label>
+                @Html.TextBoxFor(x => x.Product.UnitsInStock, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="id">Category id</label>
+                @Html.TextBoxFor(x => x.Product.CategoryID, new { @class = "form-control" })
+            </div>
+
+            <button class="btn btn-primary">Update</button>
+        }
+    </div>
+</body>
+</html>
+
+
+

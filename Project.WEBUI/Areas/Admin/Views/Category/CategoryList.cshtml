@@ -1,0 +1,66 @@
+﻿@model CategoryVM
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color:#C5CAE9;
+        }
+        .panel-body{
+            padding-top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Category ID</th>
+                    <th>Category name</th>
+                    <th>Category description</th>
+                    <th class="hidden-phone">Status</th>
+                    <th class="hidden-phone">Delete</th>
+                    <th class="hidden-phone">Update</th>
+                </tr>
+            </thead>
+            <tbody>
+               @foreach (Category item in Model.Categories)
+               {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.Description</td>
+                    <td>@item.Status</td>
+                    <td>@Html.ActionLink("Delete", "DeleteCategory", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                    <td>@Html.ActionLink("Update", "UpdateCategory", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+                </tr>
+
+               }
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
+
+

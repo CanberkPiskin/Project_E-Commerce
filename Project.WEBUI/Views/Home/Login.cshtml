@@ -1,0 +1,89 @@
+﻿@model AppUserVM
+    
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin-top:110px;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #C5CAE9;
+        }
+
+        .container {
+            width: 100%;
+            height: auto;
+        }
+        .form-container {
+            padding-left:50%;
+            width: 380px;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 7px 7px 60px #000;
+        }
+        h2 {
+            text-align: center;
+        }
+
+        button {
+            float:right;
+            margin-bottom:20px;
+        }
+        .registration{
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="form-container">
+            @TempData["HesapAktifmi"]
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
+            {
+                if (ViewBag.AktifDegil != null)
+                {
+                    <h2>Your account is not active</h2>
+                }
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Please enter your name" })
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Please enter your password" })
+                </div>
+
+                <button class="btn btn-primary">Log in</button>
+
+                <div class="registration">
+                    @Html.ActionLink("Sign up", "RegisterNow", "Register")
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
